@@ -3,6 +3,7 @@ class Enigma
 
 	attr_reader :key, :a, :b, :c, :d
 
+attr_accessor :rotation_place
 
   def generator
     @key = (0..9).to_a.shuffle
@@ -33,28 +34,41 @@ class Enigma
   #   @characters = message.chars
   # end
 
-  def encrypt_letter(index)
-      if index % 4 == 0
-      offset = self.first_key_rotation
-    elsif index % 4 == 1
-      offset = self.second_key_rotation
-    elsif index % 4 == 2
-      offset = self.third_key_rotation
-    elsif index % 4 == 3
-      offset = self.fourth_key_rotation
-    end
-    # @encrypt_letter = alphabet.rotate(offset)
-  end
-# binding.pry
   def encrypt(message)
-      @characters = message.chars
-        encrypted_letters = @characters.each_with_index do |letter, index|
-          encrypt_letter(letter, index)
-        end
-      encrypted_letters.join
+    @message = message
+    @characters = message.chars
+    encrypted_letters = []
+    @characters.each do |letter|
+      if @rotation_place == 1
+        offset = self.first_key_rotation
+        @encrypted_letters << @alphabet.rotate(offset)
+        @rotation_place += 1
+      elsif @rotation_place == 2
+        offset = self.second_key_rotation
+        @alphabet.rotate(offset)
+        @rotation_place += 1
+      elsif @rotation_place == 3
+        offset = self.third_key_rotation
+        @alphabet.rotate(offset)
+        @rotation_place += 1
+      elsif @rotation_place == 4
+        offset = self.fourth_key_rotation
+        @alphabet.rotate(offset)
+        @rotation_place += 1
+      end
+      # @encrypt_letter = alphabet.rotate(offset)
+      # encrypted_letters.join
     end
+  end
 
 end
+
+binding.pry
+#   def encrypt(message)
+#
+#
+#
+# end
 
 puts key = Enigma.new
 puts key.generator
