@@ -25,23 +25,6 @@ class Key
 
 end
 
-class Time
-
-attr_reader :offset
-
-  def offset
-    @offset = "082816"
-  end
-
-  # def first_offset
-  #   @first_offset = "08"
-  # end
-  #
-  # def second_offset
-  #   @second_offset = "08"
-  # end
-
-end
 
 class Rotation
   attr_reader :alphabet
@@ -57,31 +40,19 @@ puts key.second_key_rotation
 puts key.third_key_rotation
 puts key.fourth_key_rotation
 
-puts time = Time.new
-puts time.offset
-
-puts time.offset[-4]
-puts time.offset[-3]
-puts time.offset[-2]
-puts time.offset[-1]
-
-puts "#{key.first_key_rotation} + #{time.offset[-4]}"
-
 puts rotate = Rotation.new
 puts rotate.alphabet
 
 
 def encrypt(message)
   characters = message.chars
-  
+
   message.
 
 end
 
 
 
-
-  # need offset calculator(erin)
   # offset calculate a,b,c,d, like above
   # method that adds a,b,c,d of both together
   # then have a,b,c,d rotation numbers
@@ -117,26 +88,3 @@ end
 #   end
 # #
 # end
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-
-#
-# day = time.day.to_s
-# month = time.month.to_s
-# year = time.year.to_s
-# year = year.slice(2,3)
-# offset = day + month + year
-#
-# # key = shuffle[0..9]
-# #
-# # key.map do |num|
-# #   rand(0..9)
-# # end.join
