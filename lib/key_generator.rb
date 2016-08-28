@@ -1,6 +1,8 @@
-class Key
+require'pry'
+class Enigma
 
 	attr_reader :key, :a, :b, :c, :d
+
 
   def generator
     @key = (0..9).to_a.shuffle
@@ -23,34 +25,48 @@ class Key
     @d = @key[3..4]
   end
 
-end
-
-
-class Rotation
-  attr_reader :alphabet
   def alphabet
-    @alphabet = { "a" => 0, "b" => 1, "c" => 2, "d" => 3, "e" => 4, "f" => 5, "g" => 6,"h" => 7,"i" => 8, "j" => 9,"k" => 10, "l"  => 11, "m" => 12, "n" => 13, "o" => 14,"p" => 15,"q" => 16, "r" => 17, "s" => 18, "t" => 19, "u" => 20, "v" => 21, "w" => 22, "x" => 23, "y" => 24,"z" => 25}
+    @alphabet = ("a".."z").to_a
   end
+
+  # def characters
+  #   @characters = message.chars
+  # end
+
+  def encrypt_letter(index)
+      if index % 4 == 0
+      offset = self.first_key_rotation
+    elsif index % 4 == 1
+      offset = self.second_key_rotation
+    elsif index % 4 == 2
+      offset = self.third_key_rotation
+    elsif index % 4 == 3
+      offset = self.fourth_key_rotation
+    end
+    # @encrypt_letter = alphabet.rotate(offset)
+  end
+# binding.pry
+  def encrypt(message)
+      @characters = message.chars
+        encrypted_letters = @characters.each_with_index do |letter, index|
+          encrypt_letter(letter, index)
+        end
+      encrypted_letters.join
+    end
+
 end
 
-puts key = Key.new
+puts key = Enigma.new
 puts key.generator
 puts key.first_key_rotation
 puts key.second_key_rotation
 puts key.third_key_rotation
 puts key.fourth_key_rotation
 
-puts rotate = Rotation.new
-puts rotate.alphabet
-
-
-def encrypt(message)
-  characters = message.chars
-
-  message.
-
-end
-
+puts key.encrypt_letter("l")
+puts key.encrypt("hi")
+# puts rotate = Rotation.new
+# puts rotate.alphabet
 
 
   # offset calculate a,b,c,d, like above
@@ -67,11 +83,6 @@ end
   # that is the new encrypted letter
 
 
-# generator idea to account for duplicates
-# attr_reader :key_collection
-# def key_collection
-#   key_collection = []
-# end
 #
 #   def generator
 #     key = (0..9).to_a.shuffle
