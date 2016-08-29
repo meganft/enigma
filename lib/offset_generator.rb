@@ -1,7 +1,13 @@
 require 'pry'
-require './lib/key_generator'
 
-class Date
+class OffsetGenerator
+
+  attr_accessor :key, :first_offset, :second_offset, :third_offset, :fourth_offset
+
+  def key_generator
+    @key = (0..9).to_a.shuffle
+    @key = @key[0..4].join
+  end
 
   def date_generator
     require 'date'
@@ -14,7 +20,7 @@ class Date
   end
 
   def offset(range, slice_at)
-    key.slice(range).to_i + @date_squared.slice(slice_at).to_i
+    key_generator.slice(range).to_i + date_generator.slice(slice_at).to_i
   end
 
   def first_offset
@@ -34,11 +40,12 @@ class Date
   end
 
 end
-
-puts d = Date.new
-puts d.date_generator
-puts d.offset()
-puts d.first_offset
-puts d.second_offset
-puts d.third_offset
-puts d.fourth_offset
+#
+# puts d = OffsetGenerator.new
+# puts d.key_generator
+# puts d.date_generator
+#
+# puts d.first_offset
+# puts d.second_offset
+# puts d.third_offset
+# puts d.fourth_offset

@@ -12,12 +12,10 @@ class KeyTest < Minitest::Test
     assert key.generator
   end
 
-  def test_find_rotations_from_key_generator
+  def test_key_is_five_digits
     key = Key.new
 
-    key.first_key_rotation
-    
-    assert key.first_key_rotation
+    assert_equal 5, key.generator.length
   end
 
 end
