@@ -14,9 +14,10 @@ class KeyTest < Minitest::Test
 
   def test_find_rotations_from_key_generator
     key = Key.new
+
+    key.first_key_rotation
     
     assert key.first_key_rotation
   end
-
 
 end
