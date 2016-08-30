@@ -1,49 +1,51 @@
 require 'pry'
-require './lib/offset_generator'
+require './lib/encryptor'
 
-class Encryptor
+class Decryptor
 
   attr_reader :offset
 
   def initialize
-    @offset = OffsetGenerator.new
+    @encryptor = Encryptor.new
   end
 
   def char_map
-    @alphabet = %w(a b c d e f g h i j k l m n o p q r s t u v w x y z)
+    @alphabet = %w(a b c d e f g h i j k l m n o p q r s t u v w x y z).reverse
   end
 
-  def encrypt(message)
+  def decrypt(message)
 
     characters = message.chars
-    @encrypted_message = []
-
+    @decrypted_message = []
     characters.each_with_index do |char, index|
       if index % 4 == 0
-        offset = @offset.first_offset
+        offset = @encryptor.offset.first_offset
       elsif index % 4 == 1
-        offset = @offset.second_offset
+        offset = @encryptor.offset.second_offset
       elsif index % 4 == 2
-        offset = @offset.third_offset
+        offset = @encryptor.offset.third_offset
       elsif index % 4 == 3
-        offset = @offset.fourth_offset
+        offset = @encryptor.offset.fourth_offset
       end
 
       @rotated_character = char_map.rotate(char_map.index(char) + offset).first
 
-      @encrypted_message << @rotated_character
-      end
-    return offset = @encrypted_message.join
+      @decrypted_message << @rotated_character
+    end
+    return @decrypted_message.join
 
   end
 
 end
-
-puts e = Encryptor.new
+#
+# puts d = Decryptor.new
 # my_message = "this is so secret ..end.."
-puts output = e.encrypt("hellothisisalongword")
 
-
+# # #
+#   def alphabet
+#     @alphabet = ("a".."z").to_a
+#   end
+#
 #   def encrypt(message)
 #     @message = message
 #     @characters = message.chars

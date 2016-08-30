@@ -9,7 +9,7 @@ class Key
     @key = @key[0..4].join
   end
 
-end
+end 
 
 	#
   # def first_key_rotation

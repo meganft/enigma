@@ -41,11 +41,11 @@ class OffsetGenerator
 
 end
 
-puts d = OffsetGenerator.new
-# puts d.offset
-
+# puts d = OffsetGenerator.new
+# # puts d.offset
 #
-puts d.first_offset
-puts d.second_offset
-puts d.third_offset
-puts d.fourth_offset
+# #
+# puts d.first_offset
+# puts d.second_offset
+# puts d.third_offset
+# puts d.fourth_offset
