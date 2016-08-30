@@ -3,7 +3,7 @@ require './lib/key_generator'
 
 class OffsetGenerator
 
-  attr_accessor :key, :first_offset, :second_offset, :third_offset, :fourth_offset
+  attr_accessor :key, :our_key, :first_offset, :second_offset, :third_offset, :fourth_offset
 
   def initialize
     @key = Key.new
@@ -20,7 +20,7 @@ class OffsetGenerator
   end
 
   def offset(range, slice_at)
-    @key.key_generator.slice(range).to_i + date_generator.slice(slice_at).to_i
+    @key.slice(range).to_i + @date.slice(slice_at).to_i
   end
 
   def first_offset

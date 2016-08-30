@@ -9,6 +9,8 @@ class EncryptorTest < Minitest::Test
     e = Encryptor.new
 
     refute_equal "hello", e.encrypt("hello")
+
+    refute_equal "turing", e.encrypt("turing")
   end
 
   def test_it_encrypts_correct_number_of_characters
@@ -16,8 +18,11 @@ class EncryptorTest < Minitest::Test
     message = e.encrypt("hello")
 
     assert_equal 5, message.length
+
+    message = e.encrypt("turing")
+
+    assert_equal 6, message.length
+
   end
-
-
 
 end

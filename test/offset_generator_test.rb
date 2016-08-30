@@ -23,6 +23,6 @@ class OffsetGeneratorTest < Minitest::Test
     offset = OffsetGenerator.new
 
     assert offset.date_generator
-end
+  end
 
 end

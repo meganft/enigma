@@ -1,21 +1,25 @@
 require 'pry'
 require './lib/offset_generator'
+require './lib/key_generator'
 
 class Encryptor
 
-  attr_reader :offset
+  attr_accessor :offset, :key
 
   def initialize
     @offset = OffsetGenerator.new
+    @key = Key.new
   end
 
   def char_map
-    @alphabet = %w(a b c d e f g h i j k l m n o p q r s t u v w x y z)
+    @alphabet = %w(a b c d e f g h i j k l m n o p q r s t u v w x y z .)
   end
 
   def encrypt(message)
 
     characters = message.chars
+    @our_key = @key.key_generator
+    @date = @offset.date_generator
     @encrypted_message = []
 
     characters.each_with_index do |char, index|
@@ -28,20 +32,19 @@ class Encryptor
       elsif index % 4 == 3
         offset = @offset.fourth_offset
       end
-
       @rotated_character = char_map.rotate(char_map.index(char) + offset).first
-
       @encrypted_message << @rotated_character
       end
+
     return offset = @encrypted_message.join
 
   end
 
 end
 
-puts e = Encryptor.new
-# my_message = "this is so secret ..end.."
-puts output = e.encrypt("hellothisisalongword")
+# puts e = Encryptor.new
+# # # my_message = "this is so secret ..end.."
+# puts output = e.encrypt("hellothisisalongword..")
 
 
 #   def encrypt(message)

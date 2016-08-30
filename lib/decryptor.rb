@@ -10,7 +10,7 @@ class Decryptor
   end
 
   def char_map
-    @alphabet = %w(a b c d e f g h i j k l m n o p q r s t u v w x y z).reverse
+    @alphabet = %w(a b c d e f g h i j k l m n o p q r s t u v w x y z .).reverse
   end
 
   def decrypt(message)
@@ -39,8 +39,8 @@ class Decryptor
 end
 #
 # puts d = Decryptor.new
-# my_message = "this is so secret ..end.."
-
+# # my_message = "this is so secret ..end.."
+# puts d.decrypt(output)
 # # #
 #   def alphabet
 #     @alphabet = ("a".."z").to_a
