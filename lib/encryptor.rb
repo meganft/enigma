@@ -35,7 +35,6 @@ class Encryptor
       @rotated_character = char_map.rotate(char_map.index(char) + offset).first
       @encrypted_message << @rotated_character
       end
-
     return offset = @encrypted_message.join
 
   end

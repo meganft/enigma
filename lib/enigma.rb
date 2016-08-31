@@ -13,6 +13,7 @@ class Enigma
 
   def encrypt(message)
     @encryptor.encrypt(message)
+
   end
 
   def decrypt(message)

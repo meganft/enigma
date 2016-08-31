@@ -1,12 +1,16 @@
 require 'pry'
 require './lib/encryptor'
+require './lib/offset_generator'
+require './lib/key_generator'
 
 class Decryptor
 
-  attr_reader :offset
+  attr_reader :offset, :key
 
   def initialize
     @encryptor = Encryptor.new
+    @offset = OffsetGenerator.new
+    @key = Key.new
   end
 
   def char_map
@@ -16,6 +20,8 @@ class Decryptor
   def decrypt(message)
 
     characters = message.chars
+    @our_key = @key.key_generator
+    @date = @offset.date_generator
     @decrypted_message = []
     characters.each_with_index do |char, index|
       if index % 4 == 0

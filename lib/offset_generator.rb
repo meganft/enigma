@@ -20,7 +20,9 @@ class OffsetGenerator
   end
 
   def offset(range, slice_at)
-    @key.key_generator.slice(range).to_i + date_generator.slice(slice_at).to_i
+    @our_key = @key.key_generator
+    @our_date = date_generator
+    @our_key.slice(range).to_i + date_generator.slice(slice_at).to_i
   end
 
   def first_offset
