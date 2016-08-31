@@ -1,6 +1,4 @@
-gem 'minitest', '~> 5.2'
-require 'minitest/autorun'
-require 'minitest/pride'
+require_relative 'test_helper'
 require './lib/offset_generator'
 
 class OffsetGeneratorTest < Minitest::Test
@@ -16,6 +14,5 @@ class OffsetGeneratorTest < Minitest::Test
 
     assert_equal 21, offset.first_offset
   end
-
 
 end

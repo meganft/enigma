@@ -1,5 +1,5 @@
 require_relative 'test_helper'
-require './lib/enigma1'
+require './lib/enigma'
 
 class EnigmaTest < Minitest::Test
 
@@ -23,11 +23,6 @@ class EnigmaTest < Minitest::Test
 
   end
 
-  def test_it_can_encrypt_message
-    e = Enigma.new
-
-    assert e.encrypt("hello")
-  end
 
   def test_it_can_decrypt_message
     e = Enigma.new
@@ -53,7 +48,7 @@ class EnigmaTest < Minitest::Test
  end
 
  def test_it_cracks_message
-   e = Enigma.new 
+   e = Enigma.new
 
    assert_equal
 

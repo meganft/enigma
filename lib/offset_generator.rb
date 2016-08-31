@@ -6,7 +6,7 @@ class OffsetGenerator
 
   attr_accessor :key, :first_offset, :second_offset, :third_offset, :fourth_offset
 
-  def initialize(key, date=Date.today)
+  def initialize(key, date=Date.today.strftime('%m%d%y'))
     @key = key
     @date = date
   end
@@ -41,9 +41,4 @@ class OffsetGenerator
 
 end
 
-# puts d = OffsetGenerator.new
-
-# puts d.first_offset
-# puts d.second_offset
-# puts d.third_offset
-# puts d.fourth_offset
+puts e = OffsetGenerator.new("12345", date=Date.today.strftime('%m%d%y'))
