@@ -10,7 +10,7 @@ class Key
   end
 
 end
-
+# 
 # puts key = Key.new
 # puts key.key_generator
 
@@ -19,10 +19,11 @@ end
 # puts key.third_key_rotation
 # puts key.fourth_key_rotation
 
-#   ).to_a.shuffle
-#     key = key[0..4].join
-#     key_collection << (key)
-#     if key_collection.include?(key)
+# @key = (0..9).to_a.shuffle
+# @key = @key[0..4].join
+# 	key_collection = []
+#     key_collection << @key
+#     if key_collection.include?(@key)
 #       key = (0..9).to_a.shuffle
 #       key = key[0..4].join
 #       key

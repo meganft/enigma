@@ -9,7 +9,7 @@ class Decryptor
 
   def initialize
     @encryptor = Encryptor.new
-    @offset = OffsetGenerator.new
+    # @offset = OffsetGenerator.new
     @key = Key.new
   end
 
@@ -20,8 +20,6 @@ class Decryptor
   def decrypt(message)
 
     characters = message.chars
-    @our_key = @key.key_generator
-    @date = @offset.date_generator
     @decrypted_message = []
     characters.each_with_index do |char, index|
       if index % 4 == 0
@@ -44,45 +42,15 @@ class Decryptor
 
 end
 #
-# puts d = Decryptor.new
+puts d = Decryptor.new
 # # # my_message = "this is so secret ..end.."
-# puts d.decrypt("hello")
+puts d.decrypt("hello")
 # # #
 #   def alphabet
 #     @alphabet = ("a".."z").to_a
 #   end
-#
-#   def encrypt(message)
-#     @message = message
-#     @characters = message.chars
-#     encrypted_letters = []
-#     @characters.each do |letter|
-#       if @rotation_place % 4 == 0
-#         offset = self.first_key_rotation
-#         @encrypted_letters << @alphabet.rotate(offset)
-#         @rotation_place += 1
-#       elsif @rotation_place % 4 == 1
-#         offset = self.second_key_rotation
-#         @alphabet.rotate(offset)
-#         @rotation_place += 1
-#       elsif @rotation_place % 4 == 2
-#         offset = self.third_key_rotation
-#         @alphabet.rotate(offset)
-#         @rotation_place += 1
-#       elsif @rotation_place % 4 == 3
-#         offset = self.fourth_key_rotation
-#         @alphabet.rotate(offset)
-#         @rotation_place += 1
-#       end
-#       # @encrypt_letter = alphabet.rotate(offset)
-#       encrypted_letters.join
-#     end
-#   end
-#
-#
-#
-# puts key.encrypt_letter("l")
-# puts key.encrypt("hi")
+
+
 # letters = phrase.chars
 #       encrypted_letters = letters.map do |letter|
 #         decrypt_letter(letter)
