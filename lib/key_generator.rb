@@ -11,6 +11,8 @@ class Key
 
 end
 
+# puts key = Key.new
+# puts key.key_generator
 
 # puts key.first_key_rotation
 # puts key.second_key_rotation

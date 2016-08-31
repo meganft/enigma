@@ -39,8 +39,8 @@ class Decryptor
 end
 #
 # puts d = Decryptor.new
-# # my_message = "this is so secret ..end.."
-# puts d.decrypt(output)
+# # # my_message = "this is so secret ..end.."
+# puts d.decrypt("hello")
 # # #
 #   def alphabet
 #     @alphabet = ("a".."z").to_a

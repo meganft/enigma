@@ -43,9 +43,9 @@ class Encryptor
 end
 
 # puts e = Encryptor.new
-# # # my_message = "this is so secret ..end.."
+# # # # my_message = "this is so secret ..end.."
 # puts output = e.encrypt("hellothisisalongword..")
-
+#
 
 #   def encrypt(message)
 #     @message = message
