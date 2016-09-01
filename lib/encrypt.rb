@@ -1,4 +1,5 @@
 require "./lib/enigma"
+require './lib/key_generator'
 
 enigma = Enigma.new
 key = Key.new
@@ -10,9 +11,7 @@ message = open(file_1).read
 
 key = key.key_generator
 
-
-encrypted_message = enigma.encrypt(message, key, date = Date.today)
-
+encrypted_message = enigma.encrypt(message, key, date=Date.today)
 
 target = open(file_2, "w")
 
